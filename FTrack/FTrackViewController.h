@@ -9,12 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface FTrackViewController : UIViewController{
-  IBOutlet UITextField *username;
-    IBOutlet UITextField *password;   
+    IBOutlet UITextField *usernameField;
+    IBOutlet UITextField *passwordField;
 }
 
-@property (nonatomic, retain) IBOutlet UITextField *username;
-@property (nonatomic, retain) IBOutlet UITextView *password;
-
+@property (nonatomic, retain) IBOutlet UITextField *usernameField;
+@property (nonatomic, retain) IBOutlet UITextField *passwordField;
+-(IBAction)loginButtonPressed:(id)sender;
 
 @end

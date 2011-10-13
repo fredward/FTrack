@@ -9,7 +9,8 @@
 #import "FTrackViewController.h"
 #import "FTrackLogin.h"
 @implementation FTrackViewController
-
+@synthesize usernameField;
+@synthesize passwordField;
 - (void)didReceiveMemoryWarning
 {
     // Releases the view if it doesn't have a superview.
@@ -19,14 +20,18 @@
 }
 
 #pragma mark - View lifecycle
-
+-(IBAction)loginButtonPressed:(id)sender{
+    FTrackLogin *l = [[FTrackLogin alloc] init];
+    [l login:[usernameField text] password:[passwordField text]];
+    
+}
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    FTrackLogin *t = [[FTrackLogin alloc] init];
-    [t login:@"carlcward" password:@"BooRosie"];
+    //FTrackLogin *t = [[FTrackLogin alloc] init];
+    //[t login:@"carlcward" password:@"BooRosie"];
     NSLog(@"Hello");
 }
 
