@@ -36,7 +36,7 @@
     
     
     NSURL * url = [NSURL URLWithString:@"http://www.flotrack.org/site/login/"];
-    NSString *requestString = @"LoginForm[username]=fredward&LoginForm[password]=BooRosie1";
+    NSString *requestString = [NSString stringWithFormat:@"LoginForm[%@]=fredward&LoginForm[%@]=BooRosie1", userName, password];
     NSMutableURLRequest * r = [[NSMutableURLRequest alloc] initWithURL:url];	
     NSData *httpBody = [requestString dataUsingEncoding:NSUTF8StringEncoding];
     [r setHTTPMethod:@"POST"];
