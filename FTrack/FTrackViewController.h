@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FTrackViewController : UIViewController
+@interface FTrackViewController : UIViewController{
+  IBOutlet UITextField *username;
+    IBOutlet UITextField *password;   
+}
+
+@property (nonatomic, retain) IBOutlet UITextField *username;
+@property (nonatomic, retain) IBOutlet UITextView *password;
+
 
 @end
