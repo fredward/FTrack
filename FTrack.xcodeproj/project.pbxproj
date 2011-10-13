@@ -1,0 +1,488 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		44E1B8BE14341D1600DC559D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44E1B8BD14341D1600DC559D /* UIKit.framework */; };
+		44E1B8C014341D1600DC559D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44E1B8BF14341D1600DC559D /* Foundation.framework */; };
+		44E1B8C214341D1600DC559D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44E1B8C114341D1600DC559D /* CoreGraphics.framework */; };
+		44E1B8C814341D1600DC559D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 44E1B8C614341D1600DC559D /* InfoPlist.strings */; };
+		44E1B8CA14341D1600DC559D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 44E1B8C914341D1600DC559D /* main.m */; };
+		44E1B8CE14341D1600DC559D /* FTrackAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 44E1B8CD14341D1600DC559D /* FTrackAppDelegate.m */; };
+		44E1B8D114341D1600DC559D /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44E1B8CF14341D1600DC559D /* MainWindow.xib */; };
+		44E1B8D414341D1600DC559D /* FTrackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44E1B8D314341D1600DC559D /* FTrackViewController.m */; };
+		44E1B8D714341D1600DC559D /* FTrackViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44E1B8D514341D1600DC559D /* FTrackViewController.xib */; };
+		44E1B8DF14341D1600DC559D /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44E1B8DE14341D1600DC559D /* SenTestingKit.framework */; };
+		44E1B8E014341D1600DC559D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44E1B8BD14341D1600DC559D /* UIKit.framework */; };
+		44E1B8E114341D1600DC559D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44E1B8BF14341D1600DC559D /* Foundation.framework */; };
+		44E1B8E214341D1600DC559D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44E1B8C114341D1600DC559D /* CoreGraphics.framework */; };
+		44E1B8EA14341D1600DC559D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 44E1B8E814341D1600DC559D /* InfoPlist.strings */; };
+		44E1B8EC14341D1600DC559D /* FTrackTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 44E1B8EB14341D1600DC559D /* FTrackTests.h */; };
+		44E1B8EE14341D1600DC559D /* FTrackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 44E1B8ED14341D1600DC559D /* FTrackTests.m */; };
+		44E1B8F914341DED00DC559D /* FTrackLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 44E1B8F814341DED00DC559D /* FTrackLogin.m */; };
+		44E1B9191434250200DC559D /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44E1B9181434250200DC559D /* CFNetwork.framework */; };
+		44E1B91B1434250F00DC559D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44E1B91A1434250F00DC559D /* SystemConfiguration.framework */; };
+		44E1B91D1434251800DC559D /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44E1B91C1434251800DC559D /* MobileCoreServices.framework */; };
+		44E1B9201434252C00DC559D /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 44E1B91F1434252C00DC559D /* libz.dylib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		44E1B8E314341D1600DC559D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 44E1B8B014341D1600DC559D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 44E1B8B814341D1600DC559D;
+			remoteInfo = FTrack;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		44E1B8B914341D1600DC559D /* FTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		44E1B8BD14341D1600DC559D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		44E1B8BF14341D1600DC559D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		44E1B8C114341D1600DC559D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		44E1B8C514341D1600DC559D /* FTrack-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FTrack-Info.plist"; sourceTree = "<group>"; };
+		44E1B8C714341D1600DC559D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		44E1B8C914341D1600DC559D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		44E1B8CB14341D1600DC559D /* FTrack-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FTrack-Prefix.pch"; sourceTree = "<group>"; };
+		44E1B8CC14341D1600DC559D /* FTrackAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FTrackAppDelegate.h; sourceTree = "<group>"; };
+		44E1B8CD14341D1600DC559D /* FTrackAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FTrackAppDelegate.m; sourceTree = "<group>"; };
+		44E1B8D014341D1600DC559D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		44E1B8D214341D1600DC559D /* FTrackViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FTrackViewController.h; sourceTree = "<group>"; };
+		44E1B8D314341D1600DC559D /* FTrackViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FTrackViewController.m; sourceTree = "<group>"; };
+		44E1B8D614341D1600DC559D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FTrackViewController.xib; sourceTree = "<group>"; };
+		44E1B8DD14341D1600DC559D /* FTrackTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FTrackTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		44E1B8DE14341D1600DC559D /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		44E1B8E714341D1600DC559D /* FTrackTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FTrackTests-Info.plist"; sourceTree = "<group>"; };
+		44E1B8E914341D1600DC559D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		44E1B8EB14341D1600DC559D /* FTrackTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FTrackTests.h; sourceTree = "<group>"; };
+		44E1B8ED14341D1600DC559D /* FTrackTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FTrackTests.m; sourceTree = "<group>"; };
+		44E1B8F714341DED00DC559D /* FTrackLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTrackLogin.h; sourceTree = "<group>"; };
+		44E1B8F814341DED00DC559D /* FTrackLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTrackLogin.m; sourceTree = "<group>"; };
+		44E1B9181434250200DC559D /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		44E1B91A1434250F00DC559D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		44E1B91C1434251800DC559D /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		44E1B91E1434251F00DC559D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		44E1B91F1434252C00DC559D /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		44E1B8B614341D1600DC559D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44E1B9201434252C00DC559D /* libz.dylib in Frameworks */,
+				44E1B8C214341D1600DC559D /* CoreGraphics.framework in Frameworks */,
+				44E1B91D1434251800DC559D /* MobileCoreServices.framework in Frameworks */,
+				44E1B91B1434250F00DC559D /* SystemConfiguration.framework in Frameworks */,
+				44E1B9191434250200DC559D /* CFNetwork.framework in Frameworks */,
+				44E1B8BE14341D1600DC559D /* UIKit.framework in Frameworks */,
+				44E1B8C014341D1600DC559D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		44E1B8D914341D1600DC559D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44E1B8DF14341D1600DC559D /* SenTestingKit.framework in Frameworks */,
+				44E1B8E014341D1600DC559D /* UIKit.framework in Frameworks */,
+				44E1B8E114341D1600DC559D /* Foundation.framework in Frameworks */,
+				44E1B8E214341D1600DC559D /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		44E1B8AE14341D1600DC559D = {
+			isa = PBXGroup;
+			children = (
+				44E1B91F1434252C00DC559D /* libz.dylib */,
+				44E1B91E1434251F00DC559D /* CoreGraphics.framework */,
+				44E1B91C1434251800DC559D /* MobileCoreServices.framework */,
+				44E1B91A1434250F00DC559D /* SystemConfiguration.framework */,
+				44E1B9181434250200DC559D /* CFNetwork.framework */,
+				44E1B8C314341D1600DC559D /* FTrack */,
+				44E1B8E514341D1600DC559D /* FTrackTests */,
+				44E1B8BC14341D1600DC559D /* Frameworks */,
+				44E1B8BA14341D1600DC559D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		44E1B8BA14341D1600DC559D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				44E1B8B914341D1600DC559D /* FTrack.app */,
+				44E1B8DD14341D1600DC559D /* FTrackTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		44E1B8BC14341D1600DC559D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				44E1B8BD14341D1600DC559D /* UIKit.framework */,
+				44E1B8BF14341D1600DC559D /* Foundation.framework */,
+				44E1B8C114341D1600DC559D /* CoreGraphics.framework */,
+				44E1B8DE14341D1600DC559D /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		44E1B8C314341D1600DC559D /* FTrack */ = {
+			isa = PBXGroup;
+			children = (
+				44E1B8CC14341D1600DC559D /* FTrackAppDelegate.h */,
+				44E1B8CD14341D1600DC559D /* FTrackAppDelegate.m */,
+				44E1B8CF14341D1600DC559D /* MainWindow.xib */,
+				44E1B8D214341D1600DC559D /* FTrackViewController.h */,
+				44E1B8D314341D1600DC559D /* FTrackViewController.m */,
+				44E1B8F714341DED00DC559D /* FTrackLogin.h */,
+				44E1B8F814341DED00DC559D /* FTrackLogin.m */,
+				44E1B8D514341D1600DC559D /* FTrackViewController.xib */,
+				44E1B8C414341D1600DC559D /* Supporting Files */,
+			);
+			path = FTrack;
+			sourceTree = "<group>";
+		};
+		44E1B8C414341D1600DC559D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				44E1B8C514341D1600DC559D /* FTrack-Info.plist */,
+				44E1B8C614341D1600DC559D /* InfoPlist.strings */,
+				44E1B8C914341D1600DC559D /* main.m */,
+				44E1B8CB14341D1600DC559D /* FTrack-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		44E1B8E514341D1600DC559D /* FTrackTests */ = {
+			isa = PBXGroup;
+			children = (
+				44E1B8EB14341D1600DC559D /* FTrackTests.h */,
+				44E1B8ED14341D1600DC559D /* FTrackTests.m */,
+				44E1B8E614341D1600DC559D /* Supporting Files */,
+			);
+			path = FTrackTests;
+			sourceTree = "<group>";
+		};
+		44E1B8E614341D1600DC559D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				44E1B8E714341D1600DC559D /* FTrackTests-Info.plist */,
+				44E1B8E814341D1600DC559D /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		44E1B8B814341D1600DC559D /* FTrack */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 44E1B8F114341D1600DC559D /* Build configuration list for PBXNativeTarget "FTrack" */;
+			buildPhases = (
+				44E1B8B514341D1600DC559D /* Sources */,
+				44E1B8B614341D1600DC559D /* Frameworks */,
+				44E1B8B714341D1600DC559D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FTrack;
+			productName = FTrack;
+			productReference = 44E1B8B914341D1600DC559D /* FTrack.app */;
+			productType = "com.apple.product-type.application";
+		};
+		44E1B8DC14341D1600DC559D /* FTrackTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 44E1B8F414341D1600DC559D /* Build configuration list for PBXNativeTarget "FTrackTests" */;
+			buildPhases = (
+				44E1B8D814341D1600DC559D /* Sources */,
+				44E1B8D914341D1600DC559D /* Frameworks */,
+				44E1B8DA14341D1600DC559D /* Resources */,
+				44E1B8DB14341D1600DC559D /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				44E1B8E414341D1600DC559D /* PBXTargetDependency */,
+			);
+			name = FTrackTests;
+			productName = FTrackTests;
+			productReference = 44E1B8DD14341D1600DC559D /* FTrackTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		44E1B8B014341D1600DC559D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 44E1B8B314341D1600DC559D /* Build configuration list for PBXProject "FTrack" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 44E1B8AE14341D1600DC559D;
+			productRefGroup = 44E1B8BA14341D1600DC559D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				44E1B8B814341D1600DC559D /* FTrack */,
+				44E1B8DC14341D1600DC559D /* FTrackTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		44E1B8B714341D1600DC559D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44E1B8C814341D1600DC559D /* InfoPlist.strings in Resources */,
+				44E1B8D114341D1600DC559D /* MainWindow.xib in Resources */,
+				44E1B8D714341D1600DC559D /* FTrackViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		44E1B8DA14341D1600DC559D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44E1B8EA14341D1600DC559D /* InfoPlist.strings in Resources */,
+				44E1B8EC14341D1600DC559D /* FTrackTests.h in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		44E1B8DB14341D1600DC559D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		44E1B8B514341D1600DC559D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44E1B8CA14341D1600DC559D /* main.m in Sources */,
+				44E1B8CE14341D1600DC559D /* FTrackAppDelegate.m in Sources */,
+				44E1B8D414341D1600DC559D /* FTrackViewController.m in Sources */,
+				44E1B8F914341DED00DC559D /* FTrackLogin.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		44E1B8D814341D1600DC559D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44E1B8EE14341D1600DC559D /* FTrackTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		44E1B8E414341D1600DC559D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 44E1B8B814341D1600DC559D /* FTrack */;
+			targetProxy = 44E1B8E314341D1600DC559D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		44E1B8C614341D1600DC559D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				44E1B8C714341D1600DC559D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		44E1B8CF14341D1600DC559D /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				44E1B8D014341D1600DC559D /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		44E1B8D514341D1600DC559D /* FTrackViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				44E1B8D614341D1600DC559D /* en */,
+			);
+			name = FTrackViewController.xib;
+			sourceTree = "<group>";
+		};
+		44E1B8E814341D1600DC559D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				44E1B8E914341D1600DC559D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		44E1B8EF14341D1600DC559D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		44E1B8F014341D1600DC559D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		44E1B8F214341D1600DC559D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FTrack/FTrack-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INFOPLIST_FILE = "FTrack/FTrack-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		44E1B8F314341D1600DC559D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FTrack/FTrack-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INFOPLIST_FILE = "FTrack/FTrack-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		44E1B8F514341D1600DC559D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FTrack.app/FTrack";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FTrack/FTrack-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INFOPLIST_FILE = "FTrackTests/FTrackTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		44E1B8F614341D1600DC559D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FTrack.app/FTrack";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FTrack/FTrack-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INFOPLIST_FILE = "FTrackTests/FTrackTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		44E1B8B314341D1600DC559D /* Build configuration list for PBXProject "FTrack" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				44E1B8EF14341D1600DC559D /* Debug */,
+				44E1B8F014341D1600DC559D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		44E1B8F114341D1600DC559D /* Build configuration list for PBXNativeTarget "FTrack" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				44E1B8F214341D1600DC559D /* Debug */,
+				44E1B8F314341D1600DC559D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		44E1B8F414341D1600DC559D /* Build configuration list for PBXNativeTarget "FTrackTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				44E1B8F514341D1600DC559D /* Debug */,
+				44E1B8F614341D1600DC559D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 44E1B8B014341D1600DC559D /* Project object */;
+}
