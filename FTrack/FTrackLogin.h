@@ -19,7 +19,5 @@
 @property (retain) NSURLConnection *c, *c2;
 @property (retain) NSArray *cookies;
 -(void)login:(NSString *) userName password:(NSString *)password;
--(void) connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response;
--(void) connection:(NSURLConnection *)connection didReceiveData:(NSData *)data;
--(void) connectionDidFinishLoading:(NSURLConnection *)connection;
+-(void)postLogForDate:(NSDate *)date distance:(double)distance time:(NSString *)time feel:(int)feel notes:(NSString *)notes;
 @end

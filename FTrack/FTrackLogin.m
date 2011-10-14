@@ -7,6 +7,7 @@
 //
 
 #import "FTrackLogin.h"
+#import "FTrackLoginDelegate.h"
 //test for github
 @implementation FTrackLogin
 @synthesize c, c2, myData, cookies;
@@ -47,28 +48,19 @@
     NSHTTPCookieStorage *cs = [NSHTTPCookieStorage sharedHTTPCookieStorage];
     NSLog(@"Cookies: %@", cs);
     NSArray *cookiess = [cs cookies];
-    [cs deleteCookie:[cookiess objectAtIndex:0]];
+    if([cookiess count] != 0)
+    {
+        [cs deleteCookie:[cookiess objectAtIndex:0]];
+    }
     
-    //NSHTTPURLResponse * response = nil; //Cookie Handleing.... Not necessary apparently
-    //NSError * error = nil;
-    /*
-    if (cookies) {
-		NSEnumerator *enumerator = [cookies objectEnumerator];
-		id cookie;
-		while (cookie = [enumerator nextObject]) {
-			[r addValue:[cookie value] forHTTPHeaderField:@"Cookies"];
-		}
-	}
     
     myData = [[NSMutableData alloc]  init];
-    c = [[NSURLConnection alloc] initWithRequest:r delegate:self];
+    FTrackLoginDelegate *myNewDelegate = [[FTrackLoginDelegate alloc] init]; 
+    c = [[NSURLConnection alloc] initWithRequest:r delegate:myNewDelegate];
+    [myNewDelegate release];
     [r release];
-    */
-    myData = [[NSMutableData alloc]  init];
-    c = [[NSURLConnection alloc] initWithRequest:r delegate:self];
-    
-   //SUMBIT LOG
-  /*
+    //SUMBIT LOG
+    /*
     NSURL *url2 = [NSURL URLWithString:@"http://www.flotrack.org/running_logs/day/2011/10/19"];
     requestString = @"RunningLogResource[distance]=8&RunningLogResource[notes]=TESTPOST&RunningLogResource[log_type]=run&RunningLogResource[dist_unit]=miles";
     [r setURL:url2];
@@ -91,52 +83,25 @@
      */
     
 }
-- (void) connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+-(void)postLogForDate:(NSDate *)date distance:(double)distance time:(NSString *)time feel:(int)feel notes:(NSString *)notes
 {
-    /* Dont need cookie handling? Done automaitcally?
-    NSHTTPURLResponse *httpResponse = [(NSHTTPURLResponse*)response retain]; //Its going to be an HTTP response
-    if([httpResponse statusCode] == 200)
-    {
-         
-        NSDictionary *theHeaders = [httpResponse allHeaderFields];
-        NSArray      *theCookies = [NSHTTPCookie cookiesWithResponseHeaderFields:theHeaders forURL:[response URL]];
-        
-       
-
-        if ([theCookies count] > 0) {
-                        self.cookies = theCookies;
-            NSLog(@"Cookies:%@",[theCookies objectAtIndex:1]);
-        }
-    }
-     */
-    [myData setLength:0];
-}
--(void) connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
-{
+    NSCalendar *greg = [[NSCalendar alloc]initWithCalendarIdentifier:NSGregorianCalendar];
+    unsigned unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit;
+    NSDateComponents *stuff = [greg components:unitFlags fromDate:date];
+    NSString *string = [NSString stringWithFormat:@"http://www.flotrack.org/running_logs/day/%@/%@/%@",[stuff year],[stuff month],[stuff day]];
+    [greg release];
+    NSURL * url = [NSURL URLWithString:string];
     
-    [myData appendData:data];
+    NSString *requestString = [NSString stringWithFormat:@"RunningLogResource[distance]=%d&RunningLogResource[mins]=%@&RunningLogResource[secs]=%@&RunningLogResource[dist_unit]=miles&RunningLogResource[notes]=\"%@\"",distance,[[time componentsSeparatedByString:@":"]objectAtIndex:0],[[time componentsSeparatedByString:@":"] objectAtIndex:1], notes];
+    NSMutableURLRequest * r = [[NSMutableURLRequest alloc] initWithURL:url];	
+    NSData *httpBody = [requestString dataUsingEncoding:NSUTF8StringEncoding];
+    [r setHTTPMethod:@"POST"];
+    [r setHTTPBody:httpBody];
+    [r setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"]; 
+    FTrackLoginDelegate *myNewDelegate = [[FTrackLoginDelegate alloc] init];
+    c2 = [[NSURLConnection alloc] initWithRequest:r delegate:myNewDelegate];
+    [myNewDelegate release];
+    [r release];
 }
--(void) connectionDidFinishLoading:(NSURLConnection *)connection
-{
-    NSString *content = [[NSString alloc]  initWithData:myData encoding: NSASCIIStringEncoding];
-    NSLog(@"Data: %@",content);
-    [c release];
-    //[myData release];
-}
-/*
-- (void) requestFinished:(ASIHTTPRequest *)request {
-    //Hide your loading view here.
-    NSString *responseString = [request responseString];
-    NSLog(@"%@", responseString);
-    //Request succeeded
-}
-
-- (void) requestFailed:(ASIHTTPRequest *)request {
-    //Hide your loading view here.
-    NSError *error = [request error];
-    NSLog(@"%@", [error localizedDescription]);
-    //Request failed
-}
-*/
 
 @end

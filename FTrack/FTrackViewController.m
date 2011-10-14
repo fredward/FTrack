@@ -23,7 +23,7 @@
 -(IBAction)loginButtonPressed:(id)sender{
     FTrackLogin *l = [[FTrackLogin alloc] init];
     [l login:[usernameField text] password:[passwordField text]];
-    
+    [l release];
 }
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.

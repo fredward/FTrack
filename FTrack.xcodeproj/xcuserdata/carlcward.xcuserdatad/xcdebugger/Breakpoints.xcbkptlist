@@ -14,8 +14,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "17"
          endingLineNumber = "17"
-         landmarkName = "myData"
-         landmarkType = "19">
+         landmarkName = "@interface FTrackLogin"
+         landmarkType = "2">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -23,11 +23,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "FTrack/FTrackLogin.m"
-         timestampString = "340179212.339552"
+         timestampString = "340256828.130868"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "12"
-         endingLineNumber = "12"
+         startingLineNumber = "13"
+         endingLineNumber = "13"
          landmarkName = "c,c2,myData,cookies"
          landmarkType = "19">
       </FileBreakpoint>
@@ -42,7 +42,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "18"
          endingLineNumber = "18"
-         landmarkName = "c2"
+         landmarkName = "myData"
          landmarkType = "19">
       </FileBreakpoint>
       <FileBreakpoint
@@ -56,21 +56,21 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "19"
          endingLineNumber = "19"
-         landmarkName = "cookies"
+         landmarkName = "c2"
          landmarkType = "19">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "No"
+         shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "FTrack/FTrackLogin.m"
-         timestampString = "340184967.567955"
+         timestampString = "340257158.482972"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "48"
-         endingLineNumber = "48"
-         landmarkName = "-login:password:"
+         startingLineNumber = "93"
+         endingLineNumber = "93"
+         landmarkName = "-postLogForDate:distance:time:feel:notes:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

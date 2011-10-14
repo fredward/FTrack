@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		448E41CA1447DB7F009D0B1D /* FTrackLoginDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 448E41C91447DB7F009D0B1D /* FTrackLoginDelegate.m */; };
 		44E1B8BE14341D1600DC559D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44E1B8BD14341D1600DC559D /* UIKit.framework */; };
 		44E1B8C014341D1600DC559D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44E1B8BF14341D1600DC559D /* Foundation.framework */; };
-		44E1B8C214341D1600DC559D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44E1B8C114341D1600DC559D /* CoreGraphics.framework */; };
 		44E1B8C814341D1600DC559D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 44E1B8C614341D1600DC559D /* InfoPlist.strings */; };
 		44E1B8CA14341D1600DC559D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 44E1B8C914341D1600DC559D /* main.m */; };
 		44E1B8CE14341D1600DC559D /* FTrackAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 44E1B8CD14341D1600DC559D /* FTrackAppDelegate.m */; };
@@ -24,9 +24,7 @@
 		44E1B8EC14341D1600DC559D /* FTrackTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 44E1B8EB14341D1600DC559D /* FTrackTests.h */; };
 		44E1B8EE14341D1600DC559D /* FTrackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 44E1B8ED14341D1600DC559D /* FTrackTests.m */; };
 		44E1B8F914341DED00DC559D /* FTrackLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 44E1B8F814341DED00DC559D /* FTrackLogin.m */; };
-		44E1B9191434250200DC559D /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44E1B9181434250200DC559D /* CFNetwork.framework */; };
 		44E1B91B1434250F00DC559D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44E1B91A1434250F00DC559D /* SystemConfiguration.framework */; };
-		44E1B91D1434251800DC559D /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44E1B91C1434251800DC559D /* MobileCoreServices.framework */; };
 		44E1B9201434252C00DC559D /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 44E1B91F1434252C00DC559D /* libz.dylib */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		448E41C81447DB7F009D0B1D /* FTrackLoginDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTrackLoginDelegate.h; sourceTree = "<group>"; };
+		448E41C91447DB7F009D0B1D /* FTrackLoginDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTrackLoginDelegate.m; sourceTree = "<group>"; };
 		44E1B8B914341D1600DC559D /* FTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44E1B8BD14341D1600DC559D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		44E1B8BF14341D1600DC559D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -76,10 +76,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				44E1B9201434252C00DC559D /* libz.dylib in Frameworks */,
-				44E1B8C214341D1600DC559D /* CoreGraphics.framework in Frameworks */,
-				44E1B91D1434251800DC559D /* MobileCoreServices.framework in Frameworks */,
 				44E1B91B1434250F00DC559D /* SystemConfiguration.framework in Frameworks */,
-				44E1B9191434250200DC559D /* CFNetwork.framework in Frameworks */,
 				44E1B8BE14341D1600DC559D /* UIKit.framework in Frameworks */,
 				44E1B8C014341D1600DC559D /* Foundation.framework in Frameworks */,
 			);
@@ -144,6 +141,8 @@
 				44E1B8D314341D1600DC559D /* FTrackViewController.m */,
 				44E1B8F714341DED00DC559D /* FTrackLogin.h */,
 				44E1B8F814341DED00DC559D /* FTrackLogin.m */,
+				448E41C81447DB7F009D0B1D /* FTrackLoginDelegate.h */,
+				448E41C91447DB7F009D0B1D /* FTrackLoginDelegate.m */,
 				44E1B8D514341D1600DC559D /* FTrackViewController.xib */,
 				44E1B8C414341D1600DC559D /* Supporting Files */,
 			);
@@ -292,6 +291,7 @@
 				44E1B8CE14341D1600DC559D /* FTrackAppDelegate.m in Sources */,
 				44E1B8D414341D1600DC559D /* FTrackViewController.m in Sources */,
 				44E1B8F914341DED00DC559D /* FTrackLogin.m in Sources */,
+				448E41CA1447DB7F009D0B1D /* FTrackLoginDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
