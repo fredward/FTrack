@@ -19,5 +19,5 @@
 @property (retain) NSURLConnection *c, *c2;
 @property (retain) NSArray *cookies;
 -(void)login:(NSString *) userName password:(NSString *)password;
--(void)postLogForDate:(NSDate *)date distance:(double)distance time:(NSString *)time feel:(int)feel notes:(NSString *)notes;
+-(void)postLogForDate:(NSDate *)date distance:(float)distance time:(NSString *)time feel:(int)feel notes:(NSString *)notes;
 @end

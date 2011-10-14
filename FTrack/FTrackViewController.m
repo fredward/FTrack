@@ -23,6 +23,9 @@
 -(IBAction)loginButtonPressed:(id)sender{
     FTrackLogin *l = [[FTrackLogin alloc] init];
     [l login:[usernameField text] password:[passwordField text]];
+    
+    //Test Log --WORKS
+    [l postLogForDate:[NSDate date] distance:12 time:@"20:21" feel:5 notes:@"TEST TEST TEST"];
     [l release];
 }
 

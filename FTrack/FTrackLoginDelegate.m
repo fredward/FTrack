@@ -24,8 +24,11 @@
 -(void) connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
     NSString *content = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
-    NSLog(@"%@", content);
-    [content release];
+    if([content rangeOfString:@"RunningLogResource"].location == NSNotFound)
+    {
+        //NSLog(@"%@", content);
+    }
+        [content release];
     /*
     if ([theData length] !=0) {
         [theData appendData:data];

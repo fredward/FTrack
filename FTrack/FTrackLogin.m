@@ -50,7 +50,7 @@
     NSArray *cookiess = [cs cookies];
     if([cookiess count] != 0)
     {
-        [cs deleteCookie:[cookiess objectAtIndex:0]];
+        //[cs deleteCookie:[cookiess objectAtIndex:0]];
     }
     
     
@@ -82,17 +82,20 @@
     c2 = [[NSURLConnection alloc] initWithRequest:r delegate:self];
      */
     
+    
 }
--(void)postLogForDate:(NSDate *)date distance:(double)distance time:(NSString *)time feel:(int)feel notes:(NSString *)notes
+-(void)postLogForDate:(NSDate *)date distance:(float)distance time:(NSString *)time feel:(int)feel notes:(NSString *)notes
 {
-    NSCalendar *greg = [[NSCalendar alloc]initWithCalendarIdentifier:NSGregorianCalendar];
     unsigned unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit;
-    NSDateComponents *stuff = [greg components:unitFlags fromDate:date];
-    NSString *string = [NSString stringWithFormat:@"http://www.flotrack.org/running_logs/day/%@/%@/%@",[stuff year],[stuff month],[stuff day]];
-    [greg release];
+    NSDateComponents *stuff = [[NSCalendar currentCalendar] components:unitFlags fromDate:date];
+    
+    NSString *string = [NSString stringWithFormat:@"http://www.flotrack.org/running_logs/day/%i/%i/%i",[stuff year],[stuff month],[stuff day]];
+    //NSLog(string);
     NSURL * url = [NSURL URLWithString:string];
     
-    NSString *requestString = [NSString stringWithFormat:@"RunningLogResource[distance]=%d&RunningLogResource[mins]=%@&RunningLogResource[secs]=%@&RunningLogResource[dist_unit]=miles&RunningLogResource[notes]=\"%@\"",distance,[[time componentsSeparatedByString:@":"]objectAtIndex:0],[[time componentsSeparatedByString:@":"] objectAtIndex:1], notes];
+    NSString *requestString = [NSString stringWithFormat:@"RunningLogResource[log_type]=run&RunningLogResource[distance]=%f&RunningLogResource[mins]=%@&RunningLogResource[secs]=%@&RunningLogResource[dist_unit]=miles&RunningLogResource[feel]=%i&RunningLogResource[notes]=%@",distance,[[time componentsSeparatedByString:@":"]objectAtIndex:0],[[time componentsSeparatedByString:@":"] objectAtIndex:1], feel, notes];
+    //&RunningLogResource[notes]=\"%@\"
+    //NSLog(requestString);
     NSMutableURLRequest * r = [[NSMutableURLRequest alloc] initWithURL:url];	
     NSData *httpBody = [requestString dataUsingEncoding:NSUTF8StringEncoding];
     [r setHTTPMethod:@"POST"];
