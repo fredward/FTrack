@@ -15,5 +15,5 @@
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 
 @property (nonatomic, retain) IBOutlet FTrackViewController *viewController;
-
+-(BOOL)needsLogin;
 @end

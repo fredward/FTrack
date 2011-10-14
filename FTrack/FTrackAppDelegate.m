@@ -9,6 +9,7 @@
 #import "FTrackAppDelegate.h"
 
 #import "FTrackViewController.h"
+#import "LogViewController.h"
 
 @implementation FTrackAppDelegate
 
@@ -18,10 +19,25 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-     
-    self.window.rootViewController = self.viewController;
+    LogViewController *l = [[LogViewController alloc] initWithNibName:@"LogViewController" bundle:[NSBundle mainBundle]];
+    self.window.rootViewController = l;
+    if([self needsLogin]){
+        [self.window.rootViewController presentModalViewController:self.viewController animated:YES];
+    }
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+-(BOOL)needsLogin{
+    NSHTTPCookieStorage *cs = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    NSLog(@"Cookies: %@", cs);
+    NSArray *cookiess = [cs cookies];
+    for(NSHTTPCookie *cookie in cookiess){
+        if([[cookie domain] isEqualToString:@"www.flotrack.org"])
+            return NO;
+    }
+    return YES;
+        
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

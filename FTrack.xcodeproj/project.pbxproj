@@ -26,6 +26,8 @@
 		44E1B8F914341DED00DC559D /* FTrackLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 44E1B8F814341DED00DC559D /* FTrackLogin.m */; };
 		44E1B91B1434250F00DC559D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44E1B91A1434250F00DC559D /* SystemConfiguration.framework */; };
 		44E1B9201434252C00DC559D /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 44E1B91F1434252C00DC559D /* libz.dylib */; };
+		B6F32EED1448A90900B8D875 /* LogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F32EEB1448A90900B8D875 /* LogViewController.m */; };
+		B6F32EEE1448A90900B8D875 /* LogViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6F32EEC1448A90900B8D875 /* LogViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +70,9 @@
 		44E1B91C1434251800DC559D /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		44E1B91E1434251F00DC559D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		44E1B91F1434252C00DC559D /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		B6F32EEA1448A90900B8D875 /* LogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogViewController.h; sourceTree = "<group>"; };
+		B6F32EEB1448A90900B8D875 /* LogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogViewController.m; sourceTree = "<group>"; };
+		B6F32EEC1448A90900B8D875 /* LogViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +142,9 @@
 				44E1B8CC14341D1600DC559D /* FTrackAppDelegate.h */,
 				44E1B8CD14341D1600DC559D /* FTrackAppDelegate.m */,
 				44E1B8CF14341D1600DC559D /* MainWindow.xib */,
+				B6F32EEA1448A90900B8D875 /* LogViewController.h */,
+				B6F32EEB1448A90900B8D875 /* LogViewController.m */,
+				B6F32EEC1448A90900B8D875 /* LogViewController.xib */,
 				44E1B8D214341D1600DC559D /* FTrackViewController.h */,
 				44E1B8D314341D1600DC559D /* FTrackViewController.m */,
 				44E1B8F714341DED00DC559D /* FTrackLogin.h */,
@@ -252,6 +260,7 @@
 				44E1B8C814341D1600DC559D /* InfoPlist.strings in Resources */,
 				44E1B8D114341D1600DC559D /* MainWindow.xib in Resources */,
 				44E1B8D714341D1600DC559D /* FTrackViewController.xib in Resources */,
+				B6F32EEE1448A90900B8D875 /* LogViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,6 +301,7 @@
 				44E1B8D414341D1600DC559D /* FTrackViewController.m in Sources */,
 				44E1B8F914341DED00DC559D /* FTrackLogin.m in Sources */,
 				448E41CA1447DB7F009D0B1D /* FTrackLoginDelegate.m in Sources */,
+				B6F32EED1448A90900B8D875 /* LogViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
