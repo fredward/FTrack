@@ -19,6 +19,22 @@
     return self;
 }
 
+-(IBAction)clearLogin
+{
+    NSHTTPCookieStorage *cs = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    //NSLog(@"Cookies: %@", cs);
+   
+    NSArray *flocookies = [cs cookies ];//]ForURL:[NSURL URLWithString:@"flotrack.org"]];
+        if([flocookies count] >0)
+        {
+            NSHTTPCookie *flocookie = [flocookies objectAtIndex:0];
+           [cs deleteCookie:flocookie];
+            NSLog(@"deleted");
+        }
+    
+}
+
+
 - (void)didReceiveMemoryWarning
 {
     // Releases the view if it doesn't have a superview.

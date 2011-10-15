@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface LogViewController : UIViewController
-
+-(IBAction)clearLogin;
 @end
