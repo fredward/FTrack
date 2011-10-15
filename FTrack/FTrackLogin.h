@@ -18,6 +18,6 @@
 @property (retain) NSMutableData * myData;
 @property (retain) NSURLConnection *c, *c2;
 @property (retain) NSArray *cookies;
--(void)login:(NSString *) userName password:(NSString *)password;
+-(BOOl)login:(NSString *) userName password:(NSString *)password;
 -(void)postLogForDate:(NSDate *)date distance:(float)distance time:(NSString *)time feel:(int)feel notes:(NSString *)notes;
 @end

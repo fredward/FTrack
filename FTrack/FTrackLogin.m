@@ -32,7 +32,7 @@
     
     return self;
 }
--(void)login:(NSString *)userName password:(NSString *)password
+-(BOOL)login:(NSString *)userName password:(NSString *)password
 {
     
     
@@ -57,8 +57,11 @@
     myData = [[NSMutableData alloc]  init];
     FTrackLoginDelegate *myNewDelegate = [[FTrackLoginDelegate alloc] init]; 
     c = [[NSURLConnection alloc] initWithRequest:r delegate:myNewDelegate];
+    if([myNewDelegate loginWasSuccessful])
+        return YES;
     [myNewDelegate release];
     [r release];
+    return NO;
     //SUMBIT LOG
     /*
     NSURL *url2 = [NSURL URLWithString:@"http://www.flotrack.org/running_logs/day/2011/10/19"];
