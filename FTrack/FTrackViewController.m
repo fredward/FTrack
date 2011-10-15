@@ -29,7 +29,10 @@
     
     //Test Log --WORKS
     //[l postLogForDate:[NSDate date] distance:12 time:@"20:21" feel:5 notes:@"TEST TEST TEST"];
+<<<<<<< HEAD
     
+=======
+>>>>>>> 4fc34c4452f0b54847f043a8ed76252745f748ee
     [l release];
 }
 
