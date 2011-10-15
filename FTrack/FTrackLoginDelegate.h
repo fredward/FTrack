@@ -9,7 +9,14 @@
 #import <Foundation/Foundation.h>
 
 @interface FTrackLoginDelegate : NSObject
+{
+    NSString *theContent;
+    BOOL connectionComplete;
+}
+@property (retain) NSString *theContent;
+@property BOOL connectionComplete;
 -(void) connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response;
 -(void) connection:(NSURLConnection *)connection didReceiveData:(NSData *)data;
 -(void) connectionDidFinishLoading:(NSURLConnection *)connection;
+-(BOOL)successfulLogin;
 @end
