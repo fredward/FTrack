@@ -7,17 +7,21 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "FTrackLoginDelegate.h"
+#import "LoginSuccessDelegate.h"
 
-@interface FTrackLogin : NSObject
+@interface FTrackLogin : NSObject <FTrackLoginDelegate>
 {
     NSMutableData * myData;
     NSArray *cookies;
     NSURLConnection *c, *c2;
+    NSObject <LoginSuccessDelegate> *delegate;
 }
 //test test
 @property (retain) NSMutableData * myData;
 @property (retain) NSURLConnection *c, *c2;
 @property (retain) NSArray *cookies;
--(BOOl)login:(NSString *) userName password:(NSString *)password;
+@property (retain) NSObject <LoginSuccessDelegate> *delegate;
+-(void)login:(NSString *) userName password:(NSString *)password;
 -(void)postLogForDate:(NSDate *)date distance:(float)distance time:(NSString *)time feel:(int)feel notes:(NSString *)notes;
 @end

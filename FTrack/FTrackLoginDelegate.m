@@ -9,7 +9,7 @@
 #import "FTrackLoginDelegate.h"
 @implementation FTrackLoginDelegate
 @synthesize theContent, connectionComplete;
-- (id)init
+/*- (id)init
 {
     self = [super init];
     if (self) {
@@ -17,7 +17,7 @@
     }
     
     return self;
-}
+}*/
 -(void) connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
     
@@ -26,8 +26,8 @@
 {
     NSString *content = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
     NSLog(@"%@", content);
-    theContent = [NSString stringWithString:content];
-    connectionComplete = YES;
+    //theContent = [NSString stringWithString:content];
+   // connectionComplete = YES;
     [content release];
     /*
     if ([theData length] !=0) {
@@ -49,9 +49,7 @@
 }
 -(BOOL)successfulLogin
 {
-    while (connectionComplete == NO) {
-        NSLog(@"Waiting for Connection...");
-    }
+
     NSRange range = [theContent rangeOfString:@"Go to your profile page"];
     if(range.location != NSNotFound)
     {

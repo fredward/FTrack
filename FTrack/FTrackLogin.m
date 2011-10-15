@@ -11,6 +11,7 @@
 //test for github
 @implementation FTrackLogin
 @synthesize c, c2, myData, cookies;
+@synthesize delegate;
 /*
  <html>
  <body>
@@ -29,10 +30,9 @@
     if (self) {
         
     }
-    
     return self;
 }
--(BOOL)login:(NSString *)userName password:(NSString *)password
+-(void)login:(NSString *)userName password:(NSString *)password
 {
     
     
@@ -55,13 +55,17 @@
     
     
     myData = [[NSMutableData alloc]  init];
-    FTrackLoginDelegate *myNewDelegate = [[FTrackLoginDelegate alloc] init]; 
-    c = [[NSURLConnection alloc] initWithRequest:r delegate:myNewDelegate];
-    if([myNewDelegate loginWasSuccessful])
-        return YES;
-    [myNewDelegate release];
+    //FTrackLoginDelegate *myNewDelegate = [[FTrackLoginDelegate alloc] init]; 
+    c = [[NSURLConnection alloc] initWithRequest:r delegate:self];
+   // while(myNewDelegate.connectionComplete ==NO){
+       // NSLog(@"connection");
+    //}
+    
+    //if([myNewDelegate successfulLogin])
+    //    return YES;
+    //[myNewDelegate release];
     [r release];
-    return NO;
+   // return NO;
     //SUMBIT LOG
     /*
     NSURL *url2 = [NSURL URLWithString:@"http://www.flotrack.org/running_logs/day/2011/10/19"];
@@ -104,10 +108,50 @@
     [r setHTTPMethod:@"POST"];
     [r setHTTPBody:httpBody];
     [r setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"]; 
-    FTrackLoginDelegate *myNewDelegate = [[FTrackLoginDelegate alloc] init];
-    c2 = [[NSURLConnection alloc] initWithRequest:r delegate:myNewDelegate];
-    [myNewDelegate release];
+   // FTrackLoginDelegate *myNewDelegate = [[FTrackLoginDelegate alloc] init];
+    c2 = [[NSURLConnection alloc] initWithRequest:r delegate:self];
+    //[myNewDelegate release];
     [r release];
+}
+
+//DelegateMethods
+-(void) connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+{
+    
+}
+-(void) connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+    NSString *content = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
+    NSLog(@"%@", content);
+    NSLog(@"gothere");
+    NSRange range = [content rangeOfString:@"Go to your profile page"];
+    if(range.location == NSNotFound){
+        NSLog(@"was successful");
+        [delegate loginSuccess:NO];
+        
+    }
+    else
+        [delegate loginSuccess:YES];
+    //theContent = [NSString stringWithString:content];
+    // connectionComplete = YES;
+    [content release];
+    /*
+     if ([theData length] !=0) {
+     [theData appendData:data];
+     }
+     else
+     {
+     theData = [NSMutableData dataWithData:data];
+     }
+     */
+}
+-(void) connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    /*
+     NSString *content = [[NSString alloc] initWithData:theData encoding:NSASCIIStringEncoding];
+     NSLog(@"%@", content);
+     [content release];
+     */
 }
 
 @end

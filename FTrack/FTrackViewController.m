@@ -22,19 +22,19 @@
 #pragma mark - View lifecycle
 -(IBAction)loginButtonPressed:(id)sender{
     FTrackLogin *l = [[FTrackLogin alloc] init];
-    if([l login:[usernameField text] password:[passwordField text]])
+    [l setDelegate:self];
+    [l login:[usernameField text] password:[passwordField text]];
+    /*if([l login:[usernameField text] password:[passwordField text]])
         [self dismissModalViewControllerAnimated:YES];
     else
-        usernameField.placeholder = @"Incorrect US or PW";
+        usernameField.placeholder = @"Incorrect US or PW";*/
     
     //Test Log --WORKS
     //[l postLogForDate:[NSDate date] distance:12 time:@"20:21" feel:5 notes:@"TEST TEST TEST"];
-<<<<<<< HEAD
-    
-=======
->>>>>>> 4fc34c4452f0b54847f043a8ed76252745f748ee
+
     [l release];
 }
+
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
@@ -57,6 +57,15 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+-(void)loginSuccess:(BOOL)wasSuccessful{
+    NSLog(@"delegate called");
+    if(wasSuccessful)
+        [self dismissModalViewControllerAnimated:YES];
+    else
+          usernameField.text = @"Incorrect US or PW";
+          
 }
 
 @end

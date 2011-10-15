@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LoginSuccessDelegate.h"
 
-@interface FTrackViewController : UIViewController{
+
+@interface FTrackViewController : UIViewController <LoginSuccessDelegate>{
     IBOutlet UITextField *usernameField;
     IBOutlet UITextField *passwordField;
 }
