@@ -9,12 +9,13 @@
 #import "LogViewController.h"
 
 @implementation LogViewController
-
+@synthesize seg;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+       
     }
     return self;
 }
@@ -48,7 +49,27 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    
+    //The next block of code just makes the segmented control have colors
+    NSMutableArray *colors = [NSMutableArray arrayWithCapacity:5];
+    [colors addObject:[UIColor redColor]];
+    [colors addObject:[UIColor orangeColor]];
+    [colors addObject:[UIColor yellowColor]];
+    [colors addObject:[UIColor blueColor]];
+    [colors addObject:[UIColor greenColor]];
+    for(int i =0 ;i<5; i++)
+    {
+        [seg setWidth:seg.bounds.size.width/5 forSegmentAtIndex:i];
+        CGRect size = CGRectMake(0, 0, [seg widthForSegmentAtIndex:i]-10 , seg.bounds.size.height-10);
+        UIGraphicsBeginImageContext(size.size);
+        CGContextRef c = UIGraphicsGetCurrentContext();
+        [(UIColor *)[colors objectAtIndex:i] setFill];
+        CGContextFillRect(c, size);
+        UIImage *theimg = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        [seg setImage:theimg forSegmentAtIndex:i];
+    }
 }
 
 - (void)viewDidUnload

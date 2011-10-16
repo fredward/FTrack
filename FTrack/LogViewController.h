@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface LogViewController : UIViewController
+{
+    IBOutlet UISegmentedControl *seg;
+}
+@property (nonatomic, retain) UISegmentedControl *seg;
 -(IBAction)clearLogin;
 @end
