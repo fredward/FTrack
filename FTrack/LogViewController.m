@@ -9,13 +9,13 @@
 #import "LogViewController.h"
 
 @implementation LogViewController
-@synthesize seg;
+@synthesize seg, notesView, miles, time;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-       
+        
     }
     return self;
 }
@@ -24,14 +24,14 @@
 {
     NSHTTPCookieStorage *cs = [NSHTTPCookieStorage sharedHTTPCookieStorage];
     //NSLog(@"Cookies: %@", cs);
-   
+    
     NSArray *flocookies = [cs cookies ];//]ForURL:[NSURL URLWithString:@"flotrack.org"]];
-        if([flocookies count] >0)
-        {
-            NSHTTPCookie *flocookie = [flocookies objectAtIndex:0];
-           [cs deleteCookie:flocookie];
-            NSLog(@"deleted");
-        }
+    if([flocookies count] >0)
+    {
+        NSHTTPCookie *flocookie = [flocookies objectAtIndex:0];
+        [cs deleteCookie:flocookie];
+        NSLog(@"deleted");
+    }
     
 }
 
@@ -70,7 +70,84 @@
         UIGraphicsEndImageContext();
         [seg setImage:theimg forSegmentAtIndex:i];
     }
+    
+    //set updelegatres for text input fields
+    [miles setDelegate:self];
+    [time setDelegate:self];
+    [notesView setDelegate:self];
+    [notesView setEditable:YES];
 }
+
+-(void)postLogForDate:(NSDate *)date distance:(float)distance time:(NSString *)t feel:(int)feel notes:(NSString *)notes;
+{
+    unsigned unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit;
+    NSDateComponents *stuff = [[NSCalendar currentCalendar] components:unitFlags fromDate:date];
+    
+    NSString *string = [NSString stringWithFormat:@"http://www.flotrack.org/running_logs/day/%i/%i/%i",[stuff year],[stuff month],[stuff day]];
+    //NSLog(string);
+    NSURL * url = [NSURL URLWithString:string];
+    
+    NSString *requestString = [NSString stringWithFormat:@"RunningLogResource[log_type]=run&RunningLogResource[distance]=%f&RunningLogResource[mins]=%@&RunningLogResource[secs]=%@&RunningLogResource[dist_unit]=miles&RunningLogResource[feel]=%i&RunningLogResource[notes]=%@",distance,[[t componentsSeparatedByString:@":"]objectAtIndex:0],[[t componentsSeparatedByString:@":"] objectAtIndex:1], feel, notes];
+    //&RunningLogResource[notes]=\"%@\"
+    //NSLog(requestString);
+    NSMutableURLRequest * r = [[NSMutableURLRequest alloc] initWithURL:url];	
+    NSData *httpBody = [requestString dataUsingEncoding:NSUTF8StringEncoding];
+    [r setHTTPMethod:@"POST"];
+    [r setHTTPBody:httpBody];
+    [r setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"]; 
+    // FTrackLoginDelegate *myNewDelegate = [[FTrackLoginDelegate alloc] init];
+    NSURLConnection *c = [[NSURLConnection alloc] initWithRequest:r delegate:self];
+    //[myNewDelegate release];
+    [r release];
+    [c release];
+    
+    
+}
+
+-(IBAction)submit
+{
+    NSDate *d = [NSDate date];
+    float dist = [[miles text] floatValue];
+    NSString *t = [NSString stringWithString:[time text]];
+    int feel = seg.selectedSegmentIndex+1; //Feel is from 1-5
+    NSString *notes = [NSString stringWithString:[notesView text]];
+    [self postLogForDate:d distance:dist time:t feel:feel notes:notes];
+}
+
+
+//TextFieldDelegateMethods
+-(BOOL) textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+
+
+//TextView delegate methods
+//looks at the most recent text being entered
+-(BOOL) textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    if([text isEqualToString:@"\n"]) //if the DONE (enter) button is pressed
+    {
+        [textView resignFirstResponder];
+        return YES;
+    }
+    else
+        return YES;
+}
+-(BOOL)textViewShouldBeginEditing:(UITextView *)textView
+{
+    if([[textView text] isEqualToString:@"Notes"]) //clear the notes
+        [textView setText:@""];
+    
+    return YES; //always it always be editable
+}
+-(BOOL)textFieldShouldEndEditing:(UITextField *)textField
+{
+    return YES; //always dismissable
+}
+
+
 
 - (void)viewDidUnload
 {

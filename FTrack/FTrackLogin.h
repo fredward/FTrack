@@ -23,5 +23,5 @@
 @property (retain) NSArray *cookies;
 @property (retain) NSObject <LoginSuccessDelegate> *delegate;
 -(void)login:(NSString *) userName password:(NSString *)password;
--(void)postLogForDate:(NSDate *)date distance:(float)distance time:(NSString *)time feel:(int)feel notes:(NSString *)notes;
+
 @end
