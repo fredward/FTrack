@@ -13,13 +13,17 @@
     IBOutlet UISegmentedControl *seg;
     IBOutlet UITextView *notesView;
     IBOutlet UITextField *miles, *time;
+    NSDate *chosenDate;
 }
 @property (nonatomic, retain) UISegmentedControl *seg;
 @property (nonatomic, retain) UITextView *notesView;
 @property (nonatomic, retain) UITextField *miles, *time;
+@property (retain) NSDate *chosenDate;
 -(IBAction)clearLogin;
 -(IBAction)submit;
 -(void)postLogForDate:(NSDate *)date distance:(float)distance time:(NSString *)t feel:(int)feel notes:(NSString *)notes;
+-(IBAction)setDate:(id)sender;
+-(void)dateChosen:(NSDate *)selectedDate:(id)view;
 
 //delegate methods
 -(BOOL) textFieldShouldReturn:(UITextField *)textField;

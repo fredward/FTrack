@@ -25,6 +25,7 @@
         [self.window.rootViewController presentModalViewController:self.viewController animated:YES];
     }
     [self.window makeKeyAndVisible];
+    [l release];
     return YES;
 }
 

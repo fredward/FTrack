@@ -7,14 +7,16 @@
 //
 
 #import "LogViewController.h"
+#import "ActionSheetPicker.h"
 
 @implementation LogViewController
-@synthesize seg, notesView, miles, time;
+@synthesize seg, notesView, miles, time, chosenDate;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        NSLog(@"initwithnib");
+        self.chosenDate = [NSDate date];
         
     }
     return self;
@@ -33,6 +35,15 @@
         NSLog(@"deleted");
     }
     
+}
+
+-(IBAction)setDate:(id)sender{
+    [ActionSheetPicker displayActionPickerWithView:self.view datePickerMode:UIDatePickerModeDate selectedDate:[NSDate date] target:self action:@selector(dateChosen::) title:@"Choose Date"];
+}
+
+-(void)dateChosen:(NSDate *)selectedDate:(id)view{
+    self.chosenDate = selectedDate;
+    NSLog(@"%@", selectedDate);
 }
 
 
@@ -106,12 +117,11 @@
 
 -(IBAction)submit
 {
-    NSDate *d = [NSDate date];
     float dist = [[miles text] floatValue];
     NSString *t = [NSString stringWithString:[time text]];
     int feel = seg.selectedSegmentIndex+1; //Feel is from 1-5
     NSString *notes = [NSString stringWithString:[notesView text]];
-    [self postLogForDate:d distance:dist time:t feel:feel notes:notes];
+    [self postLogForDate:self.chosenDate distance:dist time:t feel:feel notes:notes];
 }
 
 
