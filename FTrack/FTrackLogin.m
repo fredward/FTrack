@@ -7,7 +7,7 @@
 //
 
 #import "FTrackLogin.h"
-#import "FTrackLoginDelegate.h"
+//#import "FTrackLoginDelegate.h"
 //test for github
 @implementation FTrackLogin
 @synthesize c, c2, myData, cookies;
@@ -103,7 +103,7 @@
     NSString *requestString = [NSString stringWithFormat:@"RunningLogResource[log_type]=run&RunningLogResource[distance]=%f&RunningLogResource[mins]=%@&RunningLogResource[secs]=%@&RunningLogResource[dist_unit]=miles&RunningLogResource[feel]=%i&RunningLogResource[notes]=%@",distance,[[time componentsSeparatedByString:@":"]objectAtIndex:0],[[time componentsSeparatedByString:@":"] objectAtIndex:1], feel, notes];
     //&RunningLogResource[notes]=\"%@\"
     //NSLog(requestString);
-    NSMutableURLRequest * r = [[NSMutableURLRequest alloc] initWithURL:url];	
+    NSMutableURLRequest * r = [[NSMutableURLRequest alloc] initWithURL:url];
     NSData *httpBody = [requestString dataUsingEncoding:NSUTF8StringEncoding];
     [r setHTTPMethod:@"POST"];
     [r setHTTPBody:httpBody];
@@ -114,7 +114,6 @@
     [r release];
 }
 
-//DelegateMethods
 -(void) connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
     

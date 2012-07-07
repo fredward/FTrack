@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		448E41CA1447DB7F009D0B1D /* FTrackLoginDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 448E41C91447DB7F009D0B1D /* FTrackLoginDelegate.m */; };
 		44D17231144AB26300AE1173 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44D17230144AB26300AE1173 /* CoreGraphics.framework */; };
 		44E1B8BE14341D1600DC559D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44E1B8BD14341D1600DC559D /* UIKit.framework */; };
 		44E1B8C014341D1600DC559D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44E1B8BF14341D1600DC559D /* Foundation.framework */; };
@@ -43,8 +42,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		448E41C81447DB7F009D0B1D /* FTrackLoginDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTrackLoginDelegate.h; sourceTree = "<group>"; };
-		448E41C91447DB7F009D0B1D /* FTrackLoginDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTrackLoginDelegate.m; sourceTree = "<group>"; };
 		44D17230144AB26300AE1173 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		44E1B8B914341D1600DC559D /* FTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44E1B8BD14341D1600DC559D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -160,8 +157,6 @@
 				44E1B8F714341DED00DC559D /* FTrackLogin.h */,
 				44E1B8F814341DED00DC559D /* FTrackLogin.m */,
 				B6D870301449670D00D20D31 /* LoginSuccessDelegate.h */,
-				448E41C81447DB7F009D0B1D /* FTrackLoginDelegate.h */,
-				448E41C91447DB7F009D0B1D /* FTrackLoginDelegate.m */,
 				44E1B8D514341D1600DC559D /* FTrackViewController.xib */,
 				44E1B8C414341D1600DC559D /* Supporting Files */,
 			);
@@ -311,7 +306,6 @@
 				44E1B8CE14341D1600DC559D /* FTrackAppDelegate.m in Sources */,
 				44E1B8D414341D1600DC559D /* FTrackViewController.m in Sources */,
 				44E1B8F914341DED00DC559D /* FTrackLogin.m in Sources */,
-				448E41CA1447DB7F009D0B1D /* FTrackLoginDelegate.m in Sources */,
 				B6F32EED1448A90900B8D875 /* LogViewController.m in Sources */,
 				B6252F1E144BA8AB00701AC1 /* ActionSheetPicker.m in Sources */,
 			);

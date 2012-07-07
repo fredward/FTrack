@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "FTrackLoginDelegate.h"
+//#import "FTrackLoginDelegate.h"
 #import "LoginSuccessDelegate.h"
 
-@interface FTrackLogin : NSObject <FTrackLoginDelegate>
+@interface FTrackLogin : NSObject //acts as a NSURLConnectionDelegate
 {
     NSMutableData * myData;
     NSArray *cookies;

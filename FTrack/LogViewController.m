@@ -152,7 +152,7 @@
     
     return YES; //always it always be editable
 }
--(BOOL)textFieldShouldEndEditing:(UITextField *)textField
+-(BOOL)textViewShouldEndEditing:(UITextField *)textField
 {
     return YES; //always dismissable
 }
