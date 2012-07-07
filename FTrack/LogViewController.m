@@ -10,7 +10,7 @@
 #import "ActionSheetPicker.h"
 
 @implementation LogViewController
-@synthesize seg, notesView, miles, time, chosenDate;
+@synthesize seg, notesView, miles, time, chosenDate, checkForLogConnection, checkForLogData;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -89,19 +89,20 @@
     [notesView setEditable:YES];
 }
 
--(void)postLogForDate:(NSDate *)date distance:(float)distance time:(NSString *)t feel:(int)feel notes:(NSString *)notes;
+-(void)postLogForDate:(NSDate *)date distance:(float)distance time:(NSString *)t feel:(int)feel notes:(NSString *)notes
 {
     unsigned unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit;
     NSDateComponents *stuff = [[NSCalendar currentCalendar] components:unitFlags fromDate:date];
-    
-    NSString *string = [NSString stringWithFormat:@"http://www.flotrack.org/running_logs/day/%i/%i/%i",[stuff year],[stuff month],[stuff day]];
+    // %02d formats the string to have a leading 0 if need be
+    NSString *string = [NSString stringWithFormat:@"http://www.flotrack.org/running_logs/day/%i/%@/%@",[stuff year],[NSString stringWithFormat:@"%02d", [stuff month]],[NSString stringWithFormat:@"%02d", [stuff day]]];
     //NSLog(string);
     NSURL * url = [NSURL URLWithString:string];
     
     NSString *requestString = [NSString stringWithFormat:@"RunningLogResource[log_type]=run&RunningLogResource[distance]=%f&RunningLogResource[mins]=%@&RunningLogResource[secs]=%@&RunningLogResource[dist_unit]=miles&RunningLogResource[feel]=%i&RunningLogResource[notes]=%@",distance,[[t componentsSeparatedByString:@":"]objectAtIndex:0],[[t componentsSeparatedByString:@":"] objectAtIndex:1], feel, notes];
     //&RunningLogResource[notes]=\"%@\"
     //NSLog(requestString);
-    NSMutableURLRequest * r = [[NSMutableURLRequest alloc] initWithURL:url];	
+    NSMutableURLRequest * r = [[NSMutableURLRequest alloc] initWithURL:url];
+	[r setTimeoutInterval:10];
     NSData *httpBody = [requestString dataUsingEncoding:NSUTF8StringEncoding];
     [r setHTTPMethod:@"POST"];
     [r setHTTPBody:httpBody];
@@ -111,17 +112,53 @@
     //[myNewDelegate release];
     [r release];
     [c release];
+}
+
+-(void)logsDoExistAtDate:(NSDate *)date{ //pull up the webpage and see if there is already a log at the date
+    unsigned unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit;
+    NSDateComponents *stuff = [[NSCalendar currentCalendar] components:unitFlags fromDate:date];
+    NSString *string = [NSString stringWithFormat:@"http://www.flotrack.org/running_logs/day/%i/%@/%@",[stuff year],[NSString stringWithFormat:@"%02d", [stuff month]],[NSString stringWithFormat:@"%02d", [stuff day]]];    NSURL *url = [NSURL URLWithString:string];
+    NSMutableURLRequest *r = [[NSMutableURLRequest alloc] initWithURL:url];
+    [r setHTTPMethod:@"GET"];
+    checkForLogConnection = [[NSURLConnection alloc]  initWithRequest:r delegate:self];
+    [r release];
+}
+
+-(void)checkForLogNumbers:(NSString*)data{
+    //check for the number of logs here
+    NSRange range = [data rangeOfString:@"delete-log"];
+    int count = 0;
+    while(range.location != NSNotFound){
+        range = [data rangeOfString:@"delete-log" options:0 range:range];
+        if(range.location != NSNotFound){
+            range = NSMakeRange(range.location+range.length, [data length] - (range.location+range.length));
+            count++;
+        }
+    }
+    
+    
+    
+    if(count > 0){ //if there are already extant logs
+        UIAlertView *alertview = [[UIAlertView alloc] initWithTitle:@"Logs Exist" message:[NSString stringWithFormat:@"%i logs already exist", count] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:@"Cancel", nil];
+        [alertview show];
+        [alertview release];
+    }
+    else{ // if this is the first log, post it
+        float dist = [[miles text] floatValue];
+        NSString *t = [NSString stringWithString:[time text]];
+        int feel = seg.selectedSegmentIndex+1; //Feel is from 1-5
+        NSString *notes = [NSString stringWithString:[notesView text]];
+        [self postLogForDate:self.chosenDate distance:dist time:t feel:feel notes:notes];
+    }
     
     
 }
 
 -(IBAction)submit
 {
-    float dist = [[miles text] floatValue];
-    NSString *t = [NSString stringWithString:[time text]];
-    int feel = seg.selectedSegmentIndex+1; //Feel is from 1-5
-    NSString *notes = [NSString stringWithString:[notesView text]];
-    [self postLogForDate:self.chosenDate distance:dist time:t feel:feel notes:notes];
+    
+    [self logsDoExistAtDate:self.chosenDate];
+    NSLog(@"submitting");
 }
 
 
@@ -156,6 +193,55 @@
 {
     return YES; //always dismissable
 }
+
+
+//NSURLConnection delegate
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data{
+    
+    if(connection == checkForLogConnection){
+        if(checkForLogData == nil){
+            checkForLogData = [[NSMutableData alloc] initWithData:data];
+        }
+        else{
+            [checkForLogData appendData:data];
+        }
+    }
+}
+
+-(void)connectionDidFinishLoading:(NSURLConnection *)connection{
+    if (connection == checkForLogConnection) {
+        
+        
+        NSString *checkForLogString = [[[NSString alloc] initWithData:checkForLogData encoding:NSUTF8StringEncoding] autorelease];
+        [self checkForLogNumbers:checkForLogString];
+        [checkForLogData release];
+    }
+    
+    
+}
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
+    if(connection == checkForLogConnection){
+        //timeout
+    }
+}
+
+//UIAlertviewDelegate
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex{
+    if ([alertView title] == @"Logs Exist") {
+        
+        //if they are ok with there being extra logs, submit the new log!
+        if(buttonIndex == 0){
+            float dist = [[miles text] floatValue];
+            NSString *t = [NSString stringWithString:[time text]];
+            int feel = seg.selectedSegmentIndex+1; //Feel is from 1-5
+            NSString *notes = [NSString stringWithString:[notesView text]];
+            [self postLogForDate:self.chosenDate distance:dist time:t feel:feel notes:notes];
+        }
+    }
+}
+
+
+
 
 
 

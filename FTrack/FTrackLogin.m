@@ -91,6 +91,7 @@
     
     
 }
+/*
 -(void)postLogForDate:(NSDate *)date distance:(float)distance time:(NSString *)time feel:(int)feel notes:(NSString *)notes
 {
     unsigned unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit;
@@ -112,7 +113,7 @@
     c2 = [[NSURLConnection alloc] initWithRequest:r delegate:self];
     //[myNewDelegate release];
     [r release];
-}
+}*/
 
 -(void) connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
