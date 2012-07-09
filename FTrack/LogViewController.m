@@ -126,7 +126,7 @@
 
 -(void)checkForLogNumbers:(NSString*)data{
     //check for the number of logs here
-    NSRange range = [data rangeOfString:@"delete-log"];
+    NSRange range = [data rangeOfString:@"delete-log"]; //we look for the string "delete-log" in the page source -- it shows up once for each log
     int count = 0;
     while(range.location != NSNotFound){
         range = [data rangeOfString:@"delete-log" options:0 range:range];
